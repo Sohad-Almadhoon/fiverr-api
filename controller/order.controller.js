@@ -28,9 +28,14 @@ const intent = async (req, res, next) => {
 const getOrders = async (req, res, next) => {
   try {
     const orders = await Order.find({
-      ...(req.isSeller ? { sellerId: req.userId } : { buyerId: req.userId }),
+      ...(req.isSeller ? { buyerId: req.userId } : { sellerId: req.userId }),
       isCompleted: true,
     });
+    const query = {
+     
+      isCompleted: true,
+    };
+    console.log(query)
     res.status(200).send(orders);
   } catch (err) {
     next(err);

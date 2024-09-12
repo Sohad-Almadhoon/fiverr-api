@@ -3,8 +3,8 @@ import Gig from "../models/gig.model.js";
 import Review from "../models/review.model.js";
 
 const createReview = async (req, res, next) => {
-  if (req.isSeller)
-    return next(createError(403, "Sellers can't create a review!"));
+  // if (req.isSeller)
+  //   return next(createError(403, "Sellers can't create a review!"));
   try {
     const review = await Review.findOne({
       gigId: req.body.gigId,
