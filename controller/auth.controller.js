@@ -31,7 +31,8 @@ const login = async (req, res, next) => {
     res
       .cookie('accessToken', token, {
         httpOnly: true,
-        secure: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'None',
       })
       .status(200)
       .json(others)
@@ -43,7 +44,7 @@ const logout = async (req, res) => {
   res
     .clearCookie('accessToken', {
       sameSite: 'none',
-      secure: true,
+      secure: process.env.NODE_ENV === 'production',
     })
     .status(200)
     .send('User has been logged out.')
