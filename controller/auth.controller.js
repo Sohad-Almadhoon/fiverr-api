@@ -31,7 +31,7 @@ const login = async (req, res, next) => {
     res
       .cookie('accessToken', token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
+        secure: true,
       })
       .status(200)
       .json(others)
