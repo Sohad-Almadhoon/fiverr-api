@@ -22,3 +22,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Multer scratch space. Files here are deleted right after Cloudinary accepts
+# them, so nothing in this directory belongs in the repository.
+uploads/
