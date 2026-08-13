@@ -33,7 +33,7 @@ const userSchema = new Schema(
     },
     isSeller: {
       type: Boolean,
-      defaule: false,
+      default: false,
     },
   },
   { timestamps: true }
